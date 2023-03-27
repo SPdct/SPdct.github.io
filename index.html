@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>SIMProduct</title>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			background-color: #ffffff;
+			font-family: Arial, sans-serif;
+			font-size: 16px;
+			line-height: 1.5;
+			color: #333;
+		}
+		header {
+			background-color: #ff9900;
+			text-align: center;
+			padding: 20px 0;
+		}
+
+		h1 {
+			font-size: 40px;
+			margin: 0;
+			color:white;
+		}
+
+		nav {
+			background-color: #fff;
+			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+			padding: 10px;
+			position: sticky;
+			top: 0;
+			z-index: 1;
+		}
+        li{
+            list-style: none;
+        }
+		nav ul {
+			list-style: none;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			margin: 0;
+			padding: 0;
+		}
+
+		nav ul li {
+			margin: 0 10px;
+			font-size: 15px;
+			font-weight: bold;
+		}
+
+		nav ul li a {
+			text-decoration: none;
+			color: #333;
+			padding: 10px;
+			transition: all 0.3s ease;
+		}
+
+		nav ul li a:hover {
+			color: #f0e9d8;
+			background-color: #333;
+		}
+
+		.table-container {
+			max-width: 800px;
+			margin: 50px auto;
+			background-color: #dbc3c3;
+			padding: 20px;
+			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+			border-radius: 5px;
+			overflow-x: auto;
+		}
+
+        section#comparison{
+            margin: 10px;
+        }
+
+        section#start{
+            text-align: center;
+            margin:10px;
+
+        }
+
+        section#start p{
+            
+            color: #333;
+            line-height: 2.8;
+            background-color: #fceab2;
+            border-radius: 10px;
+            font-size: 17px;
+        }
+
+		table {
+			border-collapse: collapse;
+			width: 100%;
+			margin-bottom: 20px;
+		}
+
+		th {
+			background-color: #ff9900;
+			color: #ffffff;
+			font-weight: bold;
+			text-align: center;
+			padding: 10px;
+		}
+
+		td {
+			border: 1px solid #ccc;
+			padding: 10px;
+			text-align: left;
+			vertical-align: middle;
+		}
+        /* 商品紹介 */
+        #products {
+        margin-top: 50px;
+        }
+
+        /* 商品１ */
+        .product-container {
+        display: block;
+        flex-wrap: wrap;
+        text-align: center;
+        justify-content: center;
+        margin-top: 30px;
+        padding: 20px;
+        margin-left: 20px;
+        margin-right: 20px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
+        }
+
+
+
+        .product-container p {
+          font-size: 18px;
+          line-height: 2.3;
+        }
+
+
+        .product-container h3 {
+        font-size: 24px;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 10px;
+        }
+
+        .product-container img {
+        max-width: 40%;
+        height: auto;
+        margin-right: 20px;
+        }
+
+        .product-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-top: 10px;
+        }
+
+        .product-price {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 10px;
+        }
+
+        .product-description {
+        font-size: 14px;
+        line-height: 1.5;
+        margin-bottom: 10px;
+        }
+
+        .product-rating {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+        }
+
+        .product-rating span {
+        font-size: 16px;
+        font-weight: bold;
+        padding: 5px;
+        border-radius: 10px;
+        color: #fff;
+        }
+
+        .product-high-rating {
+        background-color: green;
+        }
+
+        .product-low-rating {
+        background-color: red;
+        }
+
+        .amazon-link {
+        display: block;
+        margin-top: 10px;
+        padding: 10px;
+        background-color: #ff9900;
+        color: #fff;
+        font-weight: bold;
+        text-decoration: none;
+        border-radius: 10px;
+        transition: transform 0.3s ease-in-out;
+        }
+
+        .amazon-link:hover {
+        transform: scale(1.1);
+        }
+
+        .amazon-link:active {
+        transform: scale(0.9);
+        }
+
+        footer {
+        background-color: #333;
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+        }
+
+        footer nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        }
+
+        footer nav li {
+        display: inline-block;
+        margin-right: 20px;
+        }
+
+        footer nav a {
+        color: #fff;
+        text-decoration: none;
+        }
+
+        .related-pages {
+        margin-top: 20px;
+        }
+
+        .related-pages h3 {
+        font-size: 18px;
+        margin-bottom: 10px;
+        }
+
+        .related-pages ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        }
+
+        .related-pages li {
+        margin-bottom: 5px;
+        }
+
+        .related-pages a {
+        color: #fff;
+        text-decoration: none;
+        }
+
+                /* 目次を縦書きにする */
+        #toc {
+        writing-mode: vertical-rl;
+        position: fixed;
+        top: 50%;
+        left: 10px;
+        transform: translateY(-50%);
+        }
+
+        #toc li {
+        margin: 10px 0;
+        }
+
+        /* ページ一覧を横書きにする */
+        #footer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        }
+
+        #footer ul {
+        display: flex;
+        flex-wrap: wrap;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        }
+
+        #footer li {
+        margin: 10px;
+        }
+
+        #footer a{
+        display: block;
+        padding: 10px;
+        border: 1px solid #ccc;
+        text-align: center;
+        text-decoration: none;
+        color: #333;
+        
+        }
+
+
+
+    </style>
+</head>
+
+<body>
+  <header>
+    <h1>SIMProduct</h1>
+  </header>
+  <nav>
+    <ul>
+      <li><a href="#comparison">比較</a></li>
+      <li><a href="#product1">Anker Soundcore Life Q30</a></li>
+      <li><a href="#product2">SONY WH-CH520</a></li>
+      <li><a href="#product3">JBL TUNE 520BT</a></li>
+      <li><a href="#product4">audio-technica SOLID BASS ATH-S330BT</a></li>
+      <li><a href="#product5">OneOdio A10</a></li>
+    </ul>
+  </nav>
+  <section id="start">
+    <h2>10,000円以下!<br>無線(Bluetooth)ヘッドフォン</h2>
+    <p>  10,000円以下でも、<strong>十分に優れたヘッドフォンが豊富に揃っています。</strong><br>音質やデザイン、快適な装着感を求めるなら、価格に見合った選択が重要です。<br>
+        
+        まずは、<strong>用途を明確に</strong>しましょう。<br>通勤や通学で使うなら、コンパクトで持ち運びやすいノイキャン付きが良いでしょう。<br>自宅で音楽鑑賞やゲームを楽しむ場合は、高音質で快適な装着感が大切です。<br>
+        
+        <strong>10,000円以下のヘッドフォン</strong>でも、一定の品質を持った製品が多く、選択肢があります。<br>予算に合った、自分に適したヘッドフォンを見つけることが大切です。<br>本サイトでは特にオススメで、優れたヘッドフォンを<strong>5つ</strong>ご紹介します。</p>
+  </section>
+  <section id="comparison">
+    <h2>商品比較表</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>商品名</th>
+          <th>定価</th>
+          <th>ノイキャン</th>
+          <th>音質</th>
+          <th>再生可能時間</th>
+          
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><a href="#product1">Anker Soundcore Life Q30</a></td>
+          <td>￥8,990 税込</td>
+          <td>✓</td>
+          <td>高域と低域が特に良い<br>ハイレゾ(有線接続時)</td>
+          <td>40時間</td>
+        </tr>
+        <tr>
+          <td><a href="#product2">SONY WH-CH520</a></td>
+          <td>￥7,700 税込</td>
+          <td></td>
+          <td>高音質（CDレベル）</td>
+          <td>50時間</td>
+        </tr>
+        <tr>
+          <td><a href="#product3">JBL TUNE 520BT</a></td>
+          <td>￥7,150 税込</td>
+          <td></td>
+          <td>バランスが良い</td>
+          <td>57時間</td>
+        </tr>
+        <tr>
+          <td><a href="#product4">audio-technica SOLID BASS ATH-S330BT</a></td>
+          <td>￥9,020 税込</td>
+          <td></td>
+          <td>重低音が格別</td>
+          <td>70時間</td>
+        </tr>
+        <tr>
+          <td><a href="#product5">OneOdio A10</a></td>
+          <td>￥9,980 税込</td>
+          <td>✓</td>
+          <td>無線ハイレゾ対応<br>クリアなサウンド</td>
+          <td>62時間</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+  <section id="product1" class="product-container">
+    <h2>Anker Soundcore Life Q30</h2>
+    <img src="https://m.media-amazon.com/images/I/6196rZicy2L._AC_SX679_.jpg" alt="商品1の画像">
+    <p class="price"><strong>￥8,990</strong>税込</p>
+    <p class="description"><strong>超オススメ！！</strong><br>ノイズキャンセリング/外音取り込みモード搭載</p>
+    <p>Anker Soundcore Life Q30は<strong>Bluetooth 5.0搭載！</strong><br>40時間も連続再生可能な<strong>ノイズキャンセリングヘッドフォン！！</strong><br>音質調整機能も充実しており、折りたたみ式で持ち運びもカンタン♪<br>しかもカラーバリエーションも豊富でおしゃれ！<br>通勤や旅行を明るく、楽しくするアイテムですよ！</p>
+      <a href="https://amzn.to/42KBTtA" class="amazon-link">Amazonで購入する</a>
+  </section>
+  <section id="product2" class="product-container">
+    <h2>SONY WH-CH520</h2>
+    <img src="https://m.media-amazon.com/images/I/51EwtrTvpTL._AC_SL1150_.jpg" alt="商品2の画像">
+    <p class="price"><strong>￥7,700 </strong>税込</p>
+    <p class="description">高級音質ヘッドフォン</p>
+    <p>高音から低音までバランスが良く、<strong>自然でクリアな音</strong>をお楽しみいただけるSONYのヘッドホン！<br>「DSEE」技術により、高音域をCD音質まで補完♪<br>専用アプリ「Headphones Connect」でイコライザーをカスタマイズ可能！<br>柔らかなイヤーパッドで軽快な着け心地！<br>最長50時間再生可能で、<strong>クイック充電にも対応！</strong><br>音楽をもっと楽しんじゃおう！</p>
+    <a href="https://amzn.to/3ZdzzIM" class="amazon-link">Amazonで購入する</a>
+  </section>
+  <section id="product3" class="product-container">
+    <h2>JBL TUNE 520BT</h2>
+    <img src="https://m.media-amazon.com/images/I/61VaONF0F-L._AC_SX679_.jpg" alt="商品3の画像">
+    <p class="price"><strong>￥7,150</strong> 税込</p>
+    <p class="description">シンプルなミニマルデザイン！</p>
+    <p>JBLの最新のワイヤレスヘッドフォンは、最大57時間の音楽再生が可能！<br>さらに、急速充電機能により、たった<strong>5分で3時間の使用</strong>ができちゃう！<br>JBL Headphonesアプリを使用すると、ユーザーが好みに合わせてカスタマイズも！<br>高音質の33mm径ダイナミックドライバーと高性能マイクも搭載<br>操作が<strong>簡単で、軽量で、ポリウレタン素材</strong>のイヤーパッドも快適！</p>
+
+    </p>
+    <a href="https://amzn.to/3TOk7l7" class="amazon-link">Amazonで購入する</a>
+  </section>
+  <section id="product4" class="product-container">
+    <h2>audio-technica SOLID BASS ATH-S330BT</h2>
+    <img src="https://m.media-amazon.com/images/I/81s4tTyqQrL._AC_SL1500_.jpg" alt="商品4の画像">
+    <p class="price"><strong>￥9,020</strong> 税込</p>
+    <p class="description">重低音なら負けません！！</p>
+    <p><strong>圧倒的な低域表現</strong>を獲得したポータブルヘッドフォンです！<br><strong>最大70時間</strong>のワイヤレスリスニング！<br>10分充電で約4時間の再生ができる急速充電にも対応！<br>さらに、快適な装着感と洗練されたデザインも魅力的です！<br>ぜひ、あなたもこのヘッドホンで最高の音楽体験をしてみてください！</p>
+    <a href="https://amzn.to/40Wg3lx" class="amazon-link">Amazonで購入する</a>
+  </section>
+  <section id="product5" class="product-container">
+    <h2>OneOdio A10</h2>
+    <img src="https://m.media-amazon.com/images/I/71UkZedBNjL._AC_SL1500_.jpg" alt="商品5の画像">
+    <p class="price"><strong>￥9,980 </strong>税込</p>
+    <p class="description">DJ界隈で超人気ブランドのワイヤレスヘッドフォン！
+    </p>
+    <p>聴覚の世界を高解像度で体験したいなら、A10！<br>40mmの大口径ダイナミックドライバーを採用し、<br>40kHzまでの広帯域な周波数特性で、<strong>クリアで繊細なサウンド</strong>を実現！<br>さらに、伝統的なノイズキャンセリングヘッドホンとは違う、<br>2つのマイクを内蔵した<strong>ハイブリッドノイズキャンセリング技術</strong>を搭載し、<br>最大35dBの騒音を低減します。<br>62時間再生でき、急速充電にも対応。快適な装着感と折りたたみ機能もあり、<br>どこへでも持ち運び可能！</p>
+    <a href="https://amzn.to/3lE82Tf" class="amazon-link">Amazonで購入する</a>
+  </section>
+    <footer>
+        <nav>
+          <ul>
+            <li><a href="https://twitter.com/SIMproduct_1978">公式twitter</a></li>
+          </ul>
+        </nav>
+        <div class="related-pages">
+          <h3>他の商品紹介ページ</h3>
+          <ul>
+            <li><a href="#">...Coming soon</a></li>
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+          </ul>
+          <p>©2023 <a href="https://twitter.com/SIMproduct_1978">SIMProduct</a></p>
+        </div>
+      </footer>
+      
+</body>
+</html>
+  
+
+
